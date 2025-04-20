@@ -1,0 +1,74 @@
+export default function SwathyPortfolio() {
+  return (
+    <div className="min-h-screen bg-white text-gray-900 p-4 md:p-12">
+      <header className="text-center mb-12">
+        <h1 className="text-4xl font-bold mb-2">Swathy Suriyamurthy</h1>
+        <p className="text-lg">Tekla Steel Detailer | PEB & Structural Modeling Expert</p>
+        <p className="text-sm text-gray-600">Email: swathyspersonal@gmail.com</p>
+        <a 
+          href="/Swathy_Suriyamurthy_Resume.pdf" 
+          download 
+          className="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-xl shadow hover:bg-blue-700"
+        >
+          Download Resume
+        </a>
+      </header>
+
+      <section className="mb-16">
+        <h2 className="text-2xl font-semibold mb-4">About Me</h2>
+        <p className="leading-relaxed">
+          I specialize in steel detailing using Tekla Structures, with 4 years of experience in residential,
+          industrial, and commercial projects. I’ve worked on large-scale international assignments involving
+          American, European, and Canadian standards, including modeling, connection detailing, and fabrication-ready
+          deliverables. I'm passionate about precision, project coordination, and efficient steel design.
+        </p>
+      </section>
+
+      <section className="mb-16">
+        <h2 className="text-2xl font-semibold mb-6">Projects</h2>
+
+        {[
+          {
+            title: "Las Vegas Stadium",
+            desc: "First major project, 28,000+ tons of steel, complex circular structures, tight deadlines. Modeled with Tekla Structures.",
+            images: ["lasvegas1.jpg", "lasvegas2.jpg"],
+          },
+          {
+            title: "Tesla HQ Expansion",
+            desc: "Expansion project integrating new steel with existing concrete. 7,000+ tons of steel with gusset connections.",
+            images: ["tesla_model.png"],
+          },
+          {
+            title: "Miami F1 – Bridge",
+            desc: "Bridge structure over 4,000 tons with heavy steel members and complex load-bearing trusses.",
+            images: [],
+          },
+          {
+            title: "Airbus A320 & A220 FAL",
+            desc: "Aircraft assembly facilities with hot-rolled and PEB structures. Featured long-span trusses, cladding, GA/shop drawings.",
+            images: ["airbus220.png", "airbus320.png", "ga-1.jpg", "ga-2.jpg", "ga-3.jpg", "1.jpg", "2.jpg", "5.jpg"],
+          },
+          {
+            title: "INEOS Project One",
+            desc: "Petrochemical facility with structural pipe racks, access platforms, and hot-rolled industrial detailing.",
+            images: [],
+          },
+        ].map((project, idx) => (
+          <div key={idx} className="mb-12">
+            <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+            <p className="mb-4 text-gray-700">{project.desc}</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+              {project.images.map((img, i) => (
+                <img key={i} src={`/${img}`} alt={project.title} className="rounded-xl shadow" />
+              ))}
+            </div>
+          </div>
+        ))}
+      </section>
+
+      <footer className="text-center border-t pt-6 mt-12 text-sm text-gray-500">
+        &copy; {new Date().getFullYear()} Swathy Suriyamurthy | Portfolio Site
+      </footer>
+    </div>
+  );
+}
